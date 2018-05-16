@@ -44,35 +44,10 @@ public class Experiment<E> {
 	void train(ArrayList <E> elements) {
 		buildTree(elements);
 		
-		//calculateEmpProb(elements);
-		
-		//calculateCondProb(elements);
-		
-		//calculateGoToProbs(elements);
-		
-		printTree();
-		
-		//generateLots(generateLength);
-		
-		//debug();
-		
-		//buildCompressedList(elements);
-		
 		for(int j = 0; j < 100; j++) {
 			System.out.println("j: " + j);
 			System.out.println(elements.get(j));
 		}
-		
-//		for(int i = 0; i < 100; i++) {
-//			System.out.println("i: " + i);
-//			System.out.println(treeRows.get(compressedList.get(i)[0]).get(compressedList.get(i)[1]).getMotive());
-////			System.out.println("h: " + compressedList.get(i)[0]);
-////			System.out.println("i: " + compressedList.get(i)[1]);
-//		}
-		
-//		for(int i = 0; i < 10; i++) {
-//			System.out.println(treeRows.get(compressedList.get(i)[0]).get(compressedList.get(i)[1]).getMotive());
-//		}
 	}
 	
 	private void debug() {
@@ -173,11 +148,6 @@ public class Experiment<E> {
 				
 				System.out.println("Node: " + treeRows.get(h).get(i).getMotive());
 				
-//				for(int j = 0; j < elementsInFile.size(); j++) {
-//					System.out.println("goTo: " + elementsInFile.get(j));
-//					System.out.println("Probs: " + treeRows.get(h).get(i).getProbs()[j]);
-//				}
-				
 				for(int j = 0; j < treeRows.get(h).get(i).getSubNode().size(); j++) {
 					
 					if(!(treeRows.get(h).get(i).getSubNode().get(j) == null)) {
@@ -224,10 +194,6 @@ public class Experiment<E> {
 			//add elements that are not already in file
 			if(!isInFile(elements.get(i))) {
 				elementsInFile.add(elements.get(i));
-//				compressedList.add(new int[2]);
-//				compressedList.get(compressedIndex)[0] = h;
-//				compressedList.get(compressedIndex)[1] = elementsInFile.size();
-//				compressedIndex++;
 			}
 		}
 	}
@@ -269,26 +235,6 @@ public class Experiment<E> {
 					treeRows.get(h).add(new Node<E>(tempArray));
 					System.out.println(h);
 				}
-				
-				
-//				if(!isANode(tempArray, h)) {
-//					treeRows.get(h).add(new Node<E>(tempArray));
-//					if(elementsPos < 500) {
-//						compressedList.add(new int[2]);
-//						compressedList.get(compressedList.size() - 1)[0] = h;
-//						compressedList.get(compressedList.size() - 1)[1] = treeRows.get(h).size() - 1;
-//						elementsPos += treeRows.get(h).get(treeRows.get(h).size() - 1).getMotive().size();
-//						System.out.println(elementsPos);
-//					}
-//					//compressedIndex++;
-//				}
-//				
-//				else if(isANode(tempArray, h)) {
-//					if(elementsPos < 500) {
-//						compressedList.add(matchCoord);
-//						elementsPos += treeRows.get(matchCoord[0]).get(matchCoord[1]).getMotive().size();
-//					}
-//				}
 			}
 		}
 		
